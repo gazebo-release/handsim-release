@@ -16,7 +16,11 @@
 override_dh_auto_configure:
 	# Need to move code to src/ directory
 	mkdir -p debian/catkin_ws/src && \
-	cp -a files  haptix_gazebo_plugins  mv  polhemus_calibration  polhemus_driver debian/catkin_ws/src
+	for f in `find . -maxdepth 1 -type d`; do \
+	  if [ $$f != './debian' ] && [ $$f != '.' ]; then \
+	    cp -a $$f debian/catkin_ws/src; \
+	  fi \
+        done
 
 override_dh_auto_build:
 	# In case we're installing to a non-standard location, look for a setup.sh
