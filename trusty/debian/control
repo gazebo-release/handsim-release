@@ -6,7 +6,6 @@ Priority: extra
 Build-Depends: cmake,
                pkg-config,
                debhelper (>= 7.0.50~),
-               ros-indigo-catkin,
                libgazebo5-dev-prerelease | libgazebo5-dev,
                libhaptix-comm-dev
 Vcs-Browser: https://bitbucket.org/ignitionrobotics/ign-transport-release
