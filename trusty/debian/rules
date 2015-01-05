@@ -13,44 +13,5 @@
 %:
 	dh $@ --parallel
 
-export CATKIN_ROOT=$(CURDIR)/debian/catkin_ws
-export CATKIN_INSTALL_PATH=$(CATKIN_ROOT)/install
-
-override_dh_auto_configure:
-	# Need to move code to src/ directory
-	mkdir -p $(CATKIN_ROOT)/src && \
-	for f in `find . -maxdepth 1 -type d`; do \
-	  if [ $$f != './debian' ] && [ $$f != '.' ]; then \
-	    cp -a $$f $(CATKIN_ROOT)/src; \
-	  fi \
-        done
-
-override_dh_auto_build:
-	# In case we're installing to a non-standard location, look for a setup.sh
-	# in the install tree that was dropped by catkin, and source it. It will
-	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
-	if [ -f "/opt/ros/indigo/setup.sh" ]; then . "/opt/ros/indigo/setup.sh"; fi && \
-	cd $(CATKIN_ROOT) && \
-	catkin_make \
-		-DCATKIN_BUILD_BINARY_PACKAGE="1" 
-
-
-override_dh_auto_install:
-	# In case we're installing to a non-standard location, look for a setup.sh
-	# in the install tree that was dropped by catkin, and source it. It will
-	# set things like CMAKE_PREFIX_PATH, PKG_CONFIG_PATH, and PYTHONPATH.
-	
-	# Need to move to debian/tmp to follow standard debian procedure
-	
-	if [ -f "/opt/ros/indigo/setup.sh" ]; then . "/opt/ros/indigo/setup.sh"; fi && \
-	cd $(CATKIN_ROOT) && \
-	catkin_make install \
-		-DCATKIN_BUILD_BINARY_PACKAGE="1" && \
-	sed -i -e 's:$(CATKIN_INSTALL_PATH):/usr:g' $(CATKIN_INSTALL_PATH)/share/haptix_gazebo_plugins/setup.sh && \
-	mkdir ../handsim && \
-	mv install ../handsim/usr && \
-	cd ../../ && \
-	dh_auto_install
-
 override_dh_auto_tests:
 	true
