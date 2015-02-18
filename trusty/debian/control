@@ -6,7 +6,7 @@ Priority: extra
 Build-Depends: cmake,
                pkg-config,
                debhelper (>= 7.0.50~),
-               libgazebo5-dev-prerelease | libgazebo5-dev,
+               libgazebo6-dev-prerelease | libgazebo6-dev,
                libhaptix-comm-dev
 Vcs-Browser: https://bitbucket.org/ignitionrobotics/ign-transport-release
 Vcs-Hg: https://bitbucket.org/ignitionrobotics/ign-transport-release
@@ -17,7 +17,7 @@ Architecture: any
 Section: libs
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
-         libgazebo5-dev-prerelease | libgazebo5-dev,
+         libgazebo6-dev-prerelease | libgazebo6-dev,
          libhaptix-comm-dev
 Multi-Arch: same
 Description: Handsim simulator
