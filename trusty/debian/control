@@ -17,7 +17,7 @@ Architecture: any
 Section: libs
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
-         libgazebo6-dev-prerelease (>= 6.0.1) | libgazebo6-dev,
+         libgazebo6-dev-prerelease (>= 6.0.2) | libgazebo6-dev,
          libhaptix-comm-dev (>= 0.5.1)
 Multi-Arch: same
 Description: Handsim simulator
