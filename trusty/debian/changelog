@@ -1,3 +1,9 @@
+handsim (0.8.1-1~trusty) trusty; urgency=medium
+
+  * handsim 0.8.1-1 release
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Wed, 13 May 2015 02:04:45 +0200
+
 handsim (0.8.0-1~trusty) trusty; urgency=medium
 
   * handsim 0.8.0-1 release
