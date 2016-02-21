@@ -7,7 +7,7 @@ Build-Depends: cmake,
                pkg-config,
                debhelper (>= 7.0.50~),
                libgazebo7-haptix-dev (>= 7.1.0),
-               libhaptix-comm-dev (>= 0.8.2)
+               libhaptix-comm-dev (>= 0.8.99)
 Vcs-Browser: https://bitbucket.org/osrf/handsim-release
 Vcs-Hg: https://bitbucket.org/osrf/handsim-release
 Homepage: https://bitbucket.org/osrf/handsim
@@ -18,6 +18,6 @@ Section: libs
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          libgazebo7-haptix-dev (>= 7.1.0),
-         libhaptix-comm-dev (>= 0.8.2)
+         libhaptix-comm-dev (>= 0.8.99)
 Multi-Arch: same
 Description: Handsim simulator
